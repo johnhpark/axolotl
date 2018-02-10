@@ -153,7 +153,7 @@ class App extends Component {
     console.log('Requesting connection with other user', user);
     that.setState(Object.assign(
       that.state,
-      {edit: !this.state.edit}
+      { edit: !this.state.edit }
     ));
   }
 
