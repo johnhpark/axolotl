@@ -8,29 +8,6 @@ import Profile from '../client/components/Profile.jsx';
 
 
 render(
-  <Router history={history}>
-    <div>
-      <div className="container">
-        <nav className="nav-bar">
-          <ul className="">
-            <li>
-              <Link to="/profile" activeClassName="active">
-                Profile
-              </Link>
-            </li>
-            <li>
-              <Link to="/login" activeClassName="active">
-                Login
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <Switch>
-        <Route exact path="/" component={App} />
-        <Route path="/profile" componet={Profile} />
-      </Switch>
-    </div>
-  </Router>,
+  <App />,
   document.getElementById("content")
 );

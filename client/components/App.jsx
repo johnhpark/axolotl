@@ -1,8 +1,11 @@
 import fetch from 'isomorphic-fetch';
 import React, { Component } from 'react';
+import { Router, Route, Link, Switch } from "react-router-dom";
+import history from '../history';
 import Login from './Login.jsx';
 import Profile from './Profile.jsx';
 import Feed from './Feed.jsx';
+import Nav from './Nav.jsx';
 import UserCards from './UserCards.jsx';
 
 
@@ -175,21 +178,27 @@ class App extends Component {
       console.log("CORRECT ROUTE");
       let clickFun = (this.state.myProfile) ? this.toggleEdit : this.connect;
       console.log('CLICK FUN');
-      content = <Profile user={ this.state.profile } edit={ this.state.edit } clickFun={ clickFun }
-      submit={ this.updateProile } myProfile={ this.state.myProfile }/>
+      content = (
+        <div>
+          <Nav />
+          <Profile user={this.state.profile} edit={this.state.edit} clickFun={clickFun} submit={this.updateProfile} myProfile={this.state.myProfile} />
+        </div>
+      );
 
     } else { // load feed
       content = (
-        <Feed user={this.state.user} feed={this.state.feed} connect={this.connect}/>
-      )
+        <div>
+          <Nav />
+          <Feed user={this.state.user} feed={this.state.feed} connect={this.connect} />
+      </div>);
     }
     // TODO: the #clear button doesn't work yet.
     return (
       <div>
+    
         {content}
       </div>
     );
-
   }
 }
 

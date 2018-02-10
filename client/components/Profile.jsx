@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import history from '../history';
 
 // user object passed
 // edit: boolean
@@ -8,6 +9,10 @@ import React, { Component } from 'react';
 class Profile extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    history.push("/go-here");
   }
 
   render() {
